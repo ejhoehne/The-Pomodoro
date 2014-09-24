@@ -7,6 +7,8 @@
 //
 
 #import "POAppDelegate.h"
+#import "POTimerViewController.h"
+#import "PORoundsViewController.h"
 
 @implementation POAppDelegate
 
@@ -14,6 +16,21 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    UITabBarController *tabBarController = [UITabBarController new];
+    
+                                            
+    POTimerViewController *timerViewController = [POTimerViewController new];
+    timerViewController.tabBarItem.title = @"Timer";
+    timerViewController.tabBarItem.image = [UIImage imageNamed: @"timer-32"];
+    
+    PORoundsViewController *roundsViewController = [PORoundsViewController new];
+    tabBarController.viewControllers = @[timerViewController, roundsViewController];
+    roundsViewController.tabBarItem.title = @"Rounds";
+    roundsViewController.tabBarItem.image = [UIImage imageNamed:@"list-32"];
+    
+    self.window.rootViewController = tabBarController;
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
