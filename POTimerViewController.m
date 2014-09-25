@@ -22,19 +22,21 @@
 
 @implementation POTimerViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibBundleOrNil bundle:nibBundleOrNil];
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        
         [self registerForNotifications];
     }
     return self;
 }
-
-- (void) registerForNotifications {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newRound) name:NewRoundTimeNotificationName object:nil];
+- (void)registerForNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newRound:) name:NewRoundTimeNotificationName object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateLabel) name:SecondTickNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateButton) name:TimerCompleteNotification object:nil];
 }
+
 - (void) unregisterForNotifications {
     [self unregisterForNotifications];
 }

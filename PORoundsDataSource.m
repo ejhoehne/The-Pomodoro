@@ -19,7 +19,7 @@ static NSString * const CurrentRoundKey= @"CurrentRound";
     }
        return self;
 }
-- (void) registerTableView:(UITableView *)tableView {
+- (void)registerTableView:(UITableView *)tableView {
     [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
 }
 
@@ -40,9 +40,9 @@ static NSString * const CurrentRoundKey= @"CurrentRound";
 }
 - (void)setCurrentRound:(NSInteger)currentRound {
     if (currentRound >= [[self times] count] ) {
-        self.currentRound = 0;
+        _currentRound = 0;
     } else {
-        self.currentRound = currentRound;
+        _currentRound = currentRound;
     }
     [[NSUserDefaults standardUserDefaults] setValue:@(currentRound) forKey:CurrentRoundKey];
     [[NSUserDefaults standardUserDefaults] synchronize];

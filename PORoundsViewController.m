@@ -28,7 +28,7 @@
     return self;
 }
 - (void) registerForNotifications {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endRound) name:TimerCompleteNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endRound:) name:TimerCompleteNotification object:nil];
 }
 - (void) unregisterForNotifications {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:TimerCompleteNotification object:nil];
